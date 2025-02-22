@@ -1,3 +1,28 @@
-<p>
-  signup works!
-</p>
+<div class="login-container">
+  <p class="login-message"><b>Sign Up</b></p>
+  <p class="login-message">Please Sign up to Continue</p>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="name" placeholder="Name" class="login-input" />
+      <div *ngIf="hasError('name')" class="error-message">Name is required.</div>
+  
+      <input type="text" formControlName="email" placeholder="Email Address" class="login-input" />
+      <div *ngIf="hasError('email')" class="error-message">Email Address is required.</div>
+  
+      <input type="number" formControlName="mobile" placeholder="Mobile Number" class="login-input" />
+      <div *ngIf="hasError('mobile')" class="error-message">Mobile Number is required.</div>
+
+      <input type="password" formControlName="password" placeholder="Password" class="login-input" />
+      <div *ngIf="hasError('password')" class="error-message">Password is required.</div>
+
+      <input type="password" formControlName="cpassword" placeholder="Confirm Password" class="login-input" />
+      <div *ngIf="hasError('cpassword')" class="error-message">Password is required.</div>
+
+      <button type="submit" class="login-button">Sign Up</button>
+    </form>
+  
+  <p class="signup-text">Already Have an account?  <a class="signup" [routerLink]="'/login'"> Sign In </a></p>
+</div>
+
+<!-- <div class="footer-top"></div>
+<div class="footer-bottom"></div> -->

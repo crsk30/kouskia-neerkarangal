@@ -19,4 +19,11 @@
     <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
         <item name="android:background">@drawable/splash</item>
     </style>
+
+    <style name="Theme.Neerkarangal.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash</item>
+        <item name="android:windowFullscreen">true</item> 
+        <item name="android:windowNoTitle">true</item> 
+    </style>
 </resources>

@@ -1,3 +1,48 @@
-<p>
-  login works!
-</p>
+<!-- <div class="v85_249">
+  <div class="v85_253"> -->
+      <!-- <div class="v85_250"> -->
+
+        <!-- <input class="v85_250" type="text" placeholder="Username">Username -->
+      <!-- </div> -->
+  <!-- </div>
+  <div class="v85_254"> -->
+    <!-- <div class="v85_255"> -->
+    <!-- <input class="v85_255" type="password" placeholder="Password">Username -->
+  <!-- </div> -->
+  <!-- <span class="v85_256">Password</span>
+</div>
+<div class="v85_257">
+  <div class="v85_258">
+    <button type="submit" class="v85_258" (click)="onSubmit()">Login</button>
+  </div> -->
+  <!-- <span class="v85_261">Login</span> -->
+<!-- </div>
+<span class="v85_262">New User? Sign Up</span>
+<span class="v85_281">Please Login to Continue</span>
+
+<div class="v85_320">
+
+</div>
+<div class="v85_321">
+
+</div>
+</div> -->
+<div class="login-container">
+  <p class="login-message"><b>Login</b></p>
+  <p class="login-message">Please Login to Continue</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="username" placeholder="Username" class="login-input" />
+      <div *ngIf="hasError('username')" class="error-message">Username is required.</div>
+  
+      <input type="password" formControlName="password" placeholder="Password" class="login-input" />
+      <div *ngIf="hasError('password')" class="error-message">Password is required.</div>
+  
+      <button type="submit" class="login-button">Login</button>
+    </form>
+  
+  <p class="signup-text">New User? <a class="signup" [routerLink]="'/signup'">Sign Up</a></p>
+</div>
+
+<div class="footer-top"></div>
+<div class="footer-bottom"></div>
