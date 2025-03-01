@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">kouskia-neerkarangal</string>
-    <string name="title_activity_main">kouskia-neerkarangal</string>
+    <string name="app_name">Kouskia Neerkarangal</string>
+    <string name="title_activity_main">Kouskia Neerkarangal</string>
     <string name="package_name">com.kouskia.neerkarangal</string>
     <string name="custom_url_scheme">com.kouskia.neerkarangal</string>
 </resources>

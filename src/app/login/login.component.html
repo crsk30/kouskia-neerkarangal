@@ -36,7 +36,11 @@
       <div *ngIf="hasError('username')" class="error-message">Username is required.</div>
   
       <input type="password" formControlName="password" placeholder="Password" class="login-input" />
-      <div *ngIf="hasError('password')" class="error-message">Password is required.</div>
+
+      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error-message">
+        <span *ngIf="password?.errors?.['required']">Password is required.</span>
+        <span *ngIf="password?.errors?.['minlength']">Password must be at least 8 characters.</span>
+      </div>
   
       <button type="submit" class="login-button">Login</button>
     </form>
