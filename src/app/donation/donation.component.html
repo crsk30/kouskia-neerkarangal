@@ -1,3 +1,41 @@
-<p>
-  donation works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Donation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="donation-container">
+    <h2>Chinnavedampatti Lake</h2>
+
+    <div class="donation-box">
+      <div class="amount-options">
+        <button *ngFor="let amount of donationAmounts"
+                [class.selected]="selectedAmount === amount"
+                (click)="selectAmount(amount)">
+          ₹{{ amount }}
+        </button>
+      </div>
+
+      <ion-input type="number" placeholder="Custom Amount" [(ngModel)]="customAmount"
+                 (ionInput)="selectCustomAmount()"></ion-input>
+
+      <ion-button expand="full" class="donate-btn" (click)="donate()">Donate</ion-button>
+    </div>
+
+    <div class="payment-history">
+      <h3>Payment History</h3>
+
+      <div class="history-card" *ngFor="let payment of paymentHistory">
+        <div>
+          <p class="date">{{ payment.date }}</p>
+          <p class="type">{{ payment.type }}</p>
+        </div>
+        <div class="amount">
+          ₹{{ payment.amount }}
+          <span class="status">{{ payment.status }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

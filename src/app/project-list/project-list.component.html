@@ -1,3 +1,69 @@
-<p>
+<!-- <p>
   project-list works!
-</p>
+</p> -->
+<!-- <ion-grid>
+  <ion-row>
+    <ion-col>
+      <div class="ion-text-start">
+        <h3>Projects</h3>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="ion-text-substart">
+        <h3>Select and donate Projects</h3>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Projects</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="project-container">
+    <h2>Projects</h2>
+    <p>Select and Donate to Project</p>
+
+    <!-- Search Bar -->
+    <ion-searchbar placeholder="Search Project"></ion-searchbar>
+
+    <!-- Project Grid -->
+    <div class="grid">
+      <div *ngFor="let project of projects; let i = index" class="card" [class.selected]="selectedProject === i" (click)="selectProject(i)">
+        <img [src]="project.image" alt="Project Image" />
+        <div class="title">{{ project.name }}</div>
+        <ion-icon *ngIf="selectedProject === i" name="checkmark-circle" class="checkmark"></ion-icon>
+      </div>
+    </div>
+
+    <!-- Donate Button -->
+    <ion-button expand="full" class="donate-btn">
+      <!-- <div class="donate-btn-text">Donate the Project</div> -->
+      Donate the Project
+    </ion-button>
+  </div>
+</ion-content>
+
+<!-- Bottom Navigation -->
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button value="lake">
+        <ion-icon name="water"></ion-icon>
+        <span>Lake</span>
+      </ion-segment-button>
+      <ion-segment-button value="donate">
+        <ion-icon name="heart"></ion-icon>
+        <span>Donate</span>
+      </ion-segment-button>
+      <ion-segment-button value="profile">
+        <ion-icon name="person"></ion-icon>
+        <span>Profile</span>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>
