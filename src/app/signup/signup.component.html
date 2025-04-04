@@ -35,7 +35,7 @@
         Passwords do not match.
       </div>    
   
-      <button type="submit" class="login-button">Sign Up</button>
+      <button type="submit" class="login-button" (submit)="onSubmit()">Sign Up</button>
     </form>
   
   <p class="signup-text">Already Have an account?  <a class="signup" [routerLink]="'/login'"> Sign In </a></p>

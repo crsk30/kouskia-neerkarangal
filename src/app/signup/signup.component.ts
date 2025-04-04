@@ -4,11 +4,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
   standalone: true, 
-  imports: [CommonModule, IonicModule, ReactiveFormsModule, RouterModule], 
+  imports: [CommonModule, IonicModule, ReactiveFormsModule, RouterModule, HttpClientModule], 
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
@@ -18,7 +19,10 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 export class SignupComponent  implements OnInit {
   signupForm: FormGroup;
   
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+        private http: HttpClient,
+        private router: Router
+  ) {
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -38,8 +42,20 @@ export class SignupComponent  implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
+    console.log('Form invalid', this.signupForm);
     if (this.signupForm.valid) {
       console.log('Form Submitted:', this.signupForm.value);
+      const signupFormData = this.signupForm.value;
+      this.http.post('https://rqceocytbd.execute-api.ap-south-1.amazonaws.com/dev', signupFormData).subscribe(
+        (response) => {
+          console.log('Signup successful:', response);
+          this.router.navigate(['/login']); 
+        },
+        (error) => {
+          console.error('Signup failed:', error);
+          // Handle login error (e.g., show an error message)
+        }
+      );
     } else {
       this.signupForm.markAllAsTouched();
     }

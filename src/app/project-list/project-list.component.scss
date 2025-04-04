@@ -1,0 +1,21 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .search-box {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .card img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  

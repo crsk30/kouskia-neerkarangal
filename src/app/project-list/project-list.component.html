@@ -1,3 +1,33 @@
-<p>
-  project-list works!
-</p>
+<div class="container mt-4">
+  <h2 class="text-center">Projects</h2>
+
+  <!-- Search Project -->
+  <div class="search-box mb-3">
+    <input type="text" class="form-control" placeholder="Search Project..." [(ngModel)]="searchQuery">
+  </div>
+
+  <!-- Project List -->
+  <div class="row">
+    <div class="col-md-6 mb-3" *ngFor="let project of projects ">
+      <div class="card">
+        <img [src]="project.image" class="card-img-top" alt="{{ project.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ project.name }}</h5>
+          <button class="btn btn-primary btn-block">Donate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donate Section -->
+  <div class="donate-section text-center mt-4">
+    <h4>Select and Donate to a Project</h4>
+    <button class="btn btn-success">Donate the Project</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-4 text-center">
+    <button class="btn btn-secondary">Profile</button>
+    <button class="btn btn-danger">Donate</button>
+  </footer>
+</div>

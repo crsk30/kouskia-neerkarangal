@@ -4,11 +4,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AlertController, Platform } from '@ionic/angular';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   standalone: true, 
-  imports: [CommonModule, IonicModule, ReactiveFormsModule, RouterModule], 
+  imports: [CommonModule, IonicModule, ReactiveFormsModule, RouterModule, HttpClientModule], 
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
@@ -18,6 +19,8 @@ export class LoginComponent  implements OnInit {
   constructor(private fb: FormBuilder,
     private platform: Platform,
     private alertController: AlertController,
+    private http: HttpClient,
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -32,7 +35,16 @@ export class LoginComponent  implements OnInit {
   }
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Form Submitted:', this.loginForm.value);
+      const loginData = this.loginForm.value;
+      this.http.post('https://nv5hrxko61.execute-api.ap-south-1.amazonaws.com/dev', loginData).subscribe(
+        (response) => {
+          console.log('Login successful:', response);
+        },
+        (error) => {
+          console.error('Login failed:', error);
+          // Handle login error (e.g., show an error message)
+        }
+      );
     } else {
       this.loginForm.markAllAsTouched();
     }
@@ -67,4 +79,25 @@ export class LoginComponent  implements OnInit {
 
     await alert.present();
   }
+
+  // async LoginSuccess() {
+  //   const alert = await this.alertController.create({
+  //     header: 'Login',
+  //     message: 'Login success',
+  //     buttons: [
+  //       {
+  //         text: 'Ok',
+  //         role: 'Ok',
+  //       },
+  //       {
+  //         text: 'Ok',
+  //         handler: () => {
+  //           this.router.navigate(['/projectlist']);
+  //         },
+  //       },
+  //     ],
+  //   });
+
+  //   await alert.present();
+  // }
 }
