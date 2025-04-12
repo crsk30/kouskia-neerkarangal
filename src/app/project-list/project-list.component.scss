@@ -1,0 +1,200 @@
+// SCSS Code
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .login-container {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    height: 92vh;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    overflow-y: scroll;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .login-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .error-message,
+  .error-placeholder {
+    height: 20px; // Set a fixed height to prevent content shifting
+    font-size: 12px;
+    color: red;
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00a650;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }  
+  
+  .login-input {
+    width: 340px;
+    height: 45px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border: 1px solid #00a650;
+    border-radius: 30px;
+    color: #bfbfbf;
+    background-color: #fff;
+    font-size: 15px;
+  }
+  
+  .login-button {
+    width: 340px;
+    height: 45px;
+    background-color: #00a650;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .signup-text {
+    color: #00a650;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .signup{
+    color: #00a650;
+  }
+  .login-message {
+    color: #00a650;
+    width: 100vw;
+    padding:  0px 0px 0px 40px;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: left;
+  } 
+  .footer-top {
+    position: absolute;
+    bottom: 119px;
+    left: 0;
+    width: 100vw;
+    height: 119px;
+    background-color: #c1e1d0;
+    background: #c1e1d0;
+    clip-path: path('M0,60 Q40,0 80,60 T160,60 T240,60 T320,60 T400,60 L400,119 L0,119 Z');
+  }
+  .login-select {
+    color: #00a650;
+    width: 100vw;
+    padding:  0px 0px 0px 40px;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+  } 
+  .footer-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 119px;
+    background-color: #00a650;
+  }
+
+  @media (max-width: 768px) {
+    .footer-top, .footer-bottom {
+      height: 100px;
+    }
+
+    .footer-top {
+      bottom: 100px;
+    }
+  }
+  ion-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  .image-description-container {
+    position: relative;
+    margin: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-description-container img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .image-description-container .description {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    max-width: 90%;
+    text-align: center;
+  }
+  
+  .project-checkbox {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    --size: 22px;
+    z-index: 2;
+  }
+  
+  .donate-button{
+    margin: 5px;
+    padding: 5px;
+    background-color:#00a650;
+    color: white;
+  }
+
+  .button-native{
+    margin: 5px;
+    padding: 5px;
+    background-color:#00a650;
+    color: white;
+  }

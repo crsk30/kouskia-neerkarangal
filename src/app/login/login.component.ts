@@ -18,6 +18,7 @@ export class LoginComponent  implements OnInit {
   constructor(private fb: FormBuilder,
     private platform: Platform,
     private alertController: AlertController,
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -33,6 +34,7 @@ export class LoginComponent  implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Form Submitted:', this.loginForm.value);
+      this.router.navigate(['/project-list']);
     } else {
       this.loginForm.markAllAsTouched();
     }

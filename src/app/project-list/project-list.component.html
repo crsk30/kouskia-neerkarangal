@@ -1,3 +1,56 @@
-<p>
-  project-list works!
-</p>
+
+<div class="login-container">
+  <h1 class="login-message"><b>Projects</b></h1>
+  <h3 class="login-select">Select a project to donate</h3>
+  <input type="text"  placeholder="Search Project" class="login-input"  />
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let project of projects">
+        <div class="image-description-container">
+          <img src="../../assets/lakes/lake_1.jpeg" alt="Project Image"    (click)="goToDetails(project._id)" 
+          />
+          <p class="description">{{ project.projectTitle }}</p>
+          <ion-checkbox
+            slot="end"
+            [checked]="selectedProjectId === project._id"
+            (ionChange)="selectProject(project._id)"
+            class="project-checkbox">
+          </ion-checkbox>
+        </div>
+      </ion-col>
+    </ion-row>
+  
+    <div>
+      <ion-button expand="full" (click)="donate()" class="donate-button" [disabled]="!selectedProjectId">
+        Donate
+      </ion-button>
+    </div>
+  </ion-grid>
+  
+</div>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row class="ion-justify-content-around ion-align-items-center">
+        <ion-col class="ion-text-center">
+          <span class="material-icons" (click)="actionOne()" style="font-size: 24px; cursor: pointer;">
+            home
+          </span>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <span class="material-icons" (click)="actionTwo()" style="font-size: 24px; cursor: pointer;">
+            favorite
+          </span>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <span class="material-icons" (click)="actionThree()" style="font-size: 24px; cursor: pointer;">
+            person
+          </span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+
